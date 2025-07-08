@@ -1,0 +1,18 @@
+[1mPackage: [0m[32memacs[0m
+[1mVersion:[0m 1:30.1+1-5ubuntu1
+[1mPriority:[0m optional
+[1mSection:[0m universe/editors
+[1mOrigin:[0m Ubuntu
+[1mMaintainer:[0m Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+[1mOriginal-Maintainer:[0m Rob Browning <rlb@defaultvalue.org>
+[1mBugs:[0m https://bugs.launchpad.net/ubuntu/+filebug
+[1mInstalled-Size: [0m56.3 kB
+[1mDepends:[0m emacs-gtk (>= 1:30.1) | emacs-pgtk (>= 1:30.1) | emacs-lucid (>= 1:30.1) | emacs-nox (>= 1:30.1)
+[1mHomepage:[0m https://www.gnu.org/software/emacs/
+[1mDownload-Size: [0m21.6 kB
+[1mAPT-Sources: [0mhttp://archive.ubuntu.com/ubuntu plucky/universe amd64 Packages
+[1mDescription: [0mGNU Emacs editor (metapackage)
+ GNU Emacs is the extensible self-documenting text editor.
+ This is a metapackage that will always depend on the latest
+ recommended Emacs variant (currently emacs-gtk).
+

@@ -1,0 +1,3 @@
+/home/liqh/Documents/Github/c_programming_source/src/chap03/build/CMakeFiles/main.dir
+/home/liqh/Documents/Github/c_programming_source/src/chap03/build/CMakeFiles/edit_cache.dir
+/home/liqh/Documents/Github/c_programming_source/src/chap03/build/CMakeFiles/rebuild_cache.dir
