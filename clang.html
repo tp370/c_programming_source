@@ -1,0 +1,381 @@
+<HTML>
+<HEAD>
+<TITLE>C programming language</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1> C programming language</H1>
+<H2> Learn from examples </H2> 
+<PRE>
+<H2>
+1. Program to output an integer, a string,
+   and a floating point number, initially just one method.
+
+  <a href="download/exc1.c">exc1.c source code</a>
+
+  // exc1.c  first example simple output integer, string, double
+  //         note  //  makes rest of line a comment
+
+  #include &lt;stdio.h>  // needed to do input and output
+
+  int main()  // short version to start main program  { to }
+  {
+
+    int i = 7;     // declare variable i with initial value 7
+    char ac = 'a'; // single character
+    char msg[] = "sample string";  // declare msg with string in quotes
+    float x = 37.95;      // declare floating point x with initial value
+    double y = 127.34e10; // declare double precision with initial value
+    
+    printf("exc1.c running\n");  // simple print title
+    printf("i=%d \n", i);        // %d  for decimal  \n  for end of line
+    printf("ac=%c \n, ac);       // %c  for character
+    printf("msg=%s \n", msg);    // %s  for string
+    printf("x=%f \n", x);        // %f  for simple floating point
+    printf("y=%e \n", y);        // %e  for double with exponent
+                                 // many other  %  choices
+
+    return 0;  // standard end of C main program
+  }
+
+  Output from execution:
+
+  exc1.c running
+  i=7 
+  ac=a 
+  msg=sample string 
+  x=37.950001 
+  y=1.273400e+12 
+
+2. commands to compile and execute the source code
+   at a minimum, Windows, Linux, MacOSX.
+
+   Windows:
+   cl exec1.c
+   exec1.exe
+  
+   Linux:
+   gcc -o exc1 exc1.c -lm
+   exc1
+
+   MacOSX
+   gcc -o exc1 exc1.c -lm
+   exc1
+
+
+3. You must be able to declare variables and list and arrays
+   and matrix of various types.
+
+  <a href="download/exc3.c">exc3.c source code</a>
+
+// exc3.c   example file  more complete structure, list, arrays, matrix
+#include &lt;stdio.h>  // needed to do input and output
+
+int main(int argc, char *argv[]) // argc is count of command line arguments
+                                 // argv is list of command line arguments
+{
+  int i = 1;             // optional initialization 32 bit
+  short i16 = 1;         // 16 bit
+  long i64 = 0xabcdef01; // 64 bit initialized with hexadecimal
+                         // no boolean, int 0 for false, 1 for true
+  float x = 39.27;
+  double y = 127.5E200;
+  char msg[6] = "short";  // char for string, 0 byte at end
+
+  int vec[] = {1, 2, 4, 8};     // initialize an array, any type
+  double av[] = {1.5, 2.2, 9.1};
+  char as[3][4] = {"abc", "xyz", "more"};
+  int mat[4][3] = {{1,2,3},{2,3,4},{3,4,5},{4,5,6}}; // 4 by 3 matrix
+
+  int big[100];        // allocate space for 100 integers
+  double small[5];     // space for 5 doubles
+  double matrix[4][3]; // matrix 4 rows of 3 doubles
+
+  matrix[3][2] = 1.0;  // subscripts start at zero 0,1,2,3 is 4 items    
+  printf("exc3.c running\n");
+  printf("i=%d \n", i);
+  printf("i16=%d \n", i16);
+  printf("i64=%lx \n", i64);
+  printf("i64=%ld \n", i64);
+  printf("x=%f \n", x);
+  printf("y=%e \n", y);
+
+
+  return 0;
+} // end exc3.c   optional comment
+
+Execution output:
+exc3.c running
+i=1 
+i16=1 
+i64=abcdef01 
+i64=2882400001 
+x=39.270000 
+y=1.275000e+202 
+
+4. You need to be able to have loops, iteration statements
+
+  <a href="download/exc4.c">exc4.c source code</a>
+
+// exc4.c   example file  iteration, loops
+#include &lt;stdio.h>  // needed to do input and output
+
+int main(int argc, char *argv[]) // argc is count of command line arguments
+                                 // argv is list of command line arguments
+{
+  int i;             // declare loop variable
+  int mat[4][3] = {{1,2,3},{2,3,4},{3,4,5},{4,5,6}}; // 4 by 3 matrix
+  int sum;
+
+  for(i=0; i&lt;4; i++)  // columns of mat
+  {                   // the } could be at end of previous line   
+    for(int j=0; j&lt;3; j++) //  j only exists inside loop
+    {
+      sum += mat[i][j];
+    } // end j  optional comment
+  } // end i  optional comment
+  printf("sum=%d \n", sum);
+
+  for(i=2; i&le;10; i=i+2) { printf("i=%d \n",i); } // even numbers
+  
+  return 0;
+} // end exc4.c   optional comment
+
+Execution output:
+sum=42 
+i=2 
+i=4 
+i=6 
+i=8 
+i=10 
+
+5. You need  if then else  conditional statements
+
+  <a href="download/exc5.c">exc5.c source code</a>
+
+// exc5.c   example file  iteration, if then else
+#include &lt;stdio.h>  // needed to do input and output
+
+int main(int argc, char *argv[]) // argc is count of command line arguments
+                                 // argv is list of command line arguments
+{
+  double x = 2.0;             // declare test variable
+  int i = 3;
+
+  if(x &lt; 3.0) // <  >  <=  >=  ==  !=  compare operations
+  {
+    printf("compare < > <= >= == != x=%e \n",x);
+  }
+
+  if(x > 3.0 || i == 3 && i > 2) //  || is or,  && is and
+  {
+    printf("logic || is or, && is and i=%d \n", i);
+  }
+
+  if( x > 3.0)
+  {
+    printf("x > 3.0 \n");
+  }
+  else if(i &lt; 3)        // optional
+  {
+    printf("i &lt; 3 \n");
+  }
+  else                  // optional, get here if none of the above true
+  {
+    printf("none of the above \n");
+  } // end if  optional comment
+  
+  return 0;
+} // end exc5.c   optional comment
+
+Execution output:
+compare < > <= >= == != x=2.000000e+00 
+logic || is or, && is and i=3 
+none of the above 
+
+6. You need to be able to create functions, procedures,
+   subroutines.
+
+  <a href="download/exc6.c">exc6.c source code</a>
+
+// exc6.c   example file  create function or procedure and call
+#include &lt;stdio.h>  // needed to do input and output
+
+int main(int argc, char *argv[]) // argc is count of command line arguments
+                                 // argv is list of command line arguments
+{
+  void proc1(int i)  // void  means no return value, this i is local
+  {                  // could be at end of previous line
+    printf("proc1 called with i=%d \n", i);
+    return;      // optional, yet good practice
+  } // end proc1    optional comment
+
+  int funct1(int i, int j) // int is return type
+  {
+    int sum;      // optional return variable
+    sum = i + j;
+    return sum;   // could have been  return i+j;
+  }
+  // more common is to have function prototype here, function code below
+  double sum(int n, double A[n][n]);  // note ;  not {  here
+  int ret2(int i, int *j); // pass j by address
+
+  int i, j;
+  double arr[2][2]={{1.0,2.0},{3.0,4.0}};
+  double val;
+  
+  // call proc1, code above
+  proc1(7);
+  // use funct1
+  i = funct1(2, 3);
+  printf("funct1(2,3) returns %d \n", i);
+  val = sum(2,arr); // code below
+  printf("sum(2,arr)=%f \n", val);
+  i = ret2(i, &j);  // pass j by address
+  printf("ret2 i=%d, j=%d \n", i, j);
+  return 0;
+} // end main   optional comment
+
+// typical place for functions and procedures used only in this program
+double sum(int n, double A[n][n])
+{
+  double asum = 0.0;
+  for(int i=0; i&lt;n; i++)   // for exactly one statement, no {} OK
+    for(int j=0; j&lt;n; j++)
+      asum += A[i][j];
+  A[n-1][n-1] = 0.0;       // can change values in an array
+  return asum;
+} // end asum   optional comment
+
+int ret2(int i, int *j) // all uses of j  are  *j
+{
+  *j = i+2;   // second formal parameter changed
+  return i+1;
+} // end ret2   optional comment 
+
+// end exc6.c   optional comment
+
+Execution output:
+proc1 called with i=7 
+funct1(2,3) returns 5 
+sum(2,arr)=10.000000 
+ret2 i=6, j=7 
+
+7. You need to be able to read and write files in various formats.
+
+  <a href="download/exc7.c">exc7.c source code</a>
+
+// exc7.c   example file  write a file and read a file
+#include &lt;stdio.h>  // needed to do input and output
+
+int main(int argc, char *argv[]) // argc is count of command line arguments
+                                 // argv is list of command line arguments
+{
+  char filename[] = "myfile.txt";
+  FILE * outp;                   // file handle pointer  
+  FILE * inp;
+  char line[80];
+  
+  outp = fopen(filename,"w");
+  if(outp == NULL){              // standard test when opening a file
+    printf("file %s could not be opened for writing\n",filename);
+    return 1;                    // tell user there is a problem
+  }
+  fprintf(outp, "line 1 \n");
+  fprintf(outp, "x=%f, y=%f \n", 1.2, 3.5);
+  fprintf(outp, "last line \n");
+  fclose(outp);
+  printf("exc7.c wrote %s, now read that file \n", filename);
+
+  inp = fopen(filename,"r");
+  if(inp == NULL){              // standard test when opening a file
+    printf("file %s could not be opened for reading\n",filename);
+    return 1;                    // tell user there is a problem
+  }
+  while(!feof(inp))
+  {
+    fgets(line, 80, inp);
+    printf("%s",line);  // no newline in format, came in from file
+    // could use fscanf(inp, "%d", &i); or other format  needs &
+  }  
+  fclose(inp);
+  return 0;
+} // end exc7.c   optional comment
+
+Execution output:
+exc7.c wrote myfile.txt, now read that file 
+line 1 
+x=1.200000, y=3.500000 
+last line 
+last line 
+
+8. You need to be able to use a number of files combined to
+   build a program. This may include packages, libraries,
+   operating system commands, header files, etc.
+
+  <a href="download/exc8.c">exc8.c source code</a>
+
+// exc8.c   example file  use a function you wrote  exc8sub.h exc8sub.c
+
+#include <stdio.h>    // library functions to do input and output
+#include "exc8sub.h"  // note " "  rather than  < >
+                      // need .h  function prototype
+
+int main(int argc, char *argv[])
+{
+  double big = exc8sub(5,5);  // 5^5  5**5
+  printf("exc8.c running, using exc8sub.c exc8sub.h \n");
+  printf("big = exc8sub(5,5); \n");
+  printf("big  = %e \n", big);
+
+  printf("exc8.c finished \n");
+  return 0;
+} // end exc8.c   optional comment
+
+
+  <a href="download/exc8sub.c">exc8sub.c source code</a>
+
+// exc8sub.c   a function, separately compiled, possible  multiple use
+#include &lt;math.h%gt;
+double exc8sub(int i, int j)
+{
+  double val = (double)(i);
+  return pow(val,j);
+} // end exc8sub
+
+  <a href="download/exc8sub.h">exc8sub.h source code</a>
+
+// exc8sub.h   header file for exc8sub.c
+double exc8sub(int i, int j); // just the function prototype
+
+  <a href="download/exc8_c.make">exc8_c.make source code</a>
+
+# Makefile  example
+all: exc8_c.out
+
+exc8_c.out: exc8.c exc8sub.c exc8sub.h
+	gcc -o exc8 exc8.c exc8sub.c -lm
+	exc8 > exc8_c.out
+	rm -f exc8
+	    
+# ^ not spaces, must be tab
+
+Execution output:
+
+exc8.c running, using exc8sub.c exc8sub.h 
+big = exc8sub(5,5); 
+big  = 3.125000e+03 
+exc8.c finished 
+
+
+<a href="download/c_summary.vu">Now, you are ready for a more complete language summary</a>
+
+</H2>
+</PRE> 
+
+
+<PRE>
+Last updated 9/18/2019 </PRE>
+</BODY>
+</HTML>
